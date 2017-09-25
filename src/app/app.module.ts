@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Rutas - Añadirlo despues en los inputs o imports
+import {app_routing} from "./app.routes";
+
+//Componentes
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -18,7 +22,8 @@ import { ProductosComponent } from './components/productos/productos.component';
     ProductosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    app_routing
   ],
   providers: [],
   bootstrap: [AppComponent]

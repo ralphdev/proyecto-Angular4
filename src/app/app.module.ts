@@ -1,8 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Importar Http ya que angular cli no lo hace por nosotros
+import { HttpModule } from "@angular/http";
+
 //Rutas - Añadirlo despues en los inputs o imports
 import {app_routing} from "./app.routes";
+
+//Servicios
+import { InformacionService } from "./services/informacion.services";
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -23,9 +29,12 @@ import { ProductosComponent } from './components/productos/productos.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     app_routing
   ],
-  providers: [],
+  providers: [
+    InformacionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

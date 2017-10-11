@@ -9,6 +9,8 @@ import {app_routing} from "./app.routes";
 
 //Servicios
 import { InformacionService } from "./services/informacion.services";
+import { ProductosService } from "./services/productos.service";
+
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -33,7 +35,8 @@ import { ProductosComponent } from './components/productos/productos.component';
     app_routing
   ],
   providers: [
-    InformacionService
+    InformacionService,
+    ProductosService
   ],
   bootstrap: [AppComponent]
 })

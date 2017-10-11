@@ -29,7 +29,7 @@ export class InformacionService {
     this.http.get("https://prueba-30666.firebaseio.com/equipo.json")
               .subscribe(data => {
                 //Si solo quiero imprimir los datos json
-                console.log(data.json());
+                //console.log(data.json());
                 this.cargada_sobre_nosotros = true;
                 this.equipo = data.json();
               });

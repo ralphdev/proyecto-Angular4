@@ -71,3 +71,11 @@
   transform-origin: top center;
   animation-name: swing;
 }
+
+/*
+  Color del Loading
+*/
+svg path,
+svg rect{
+  fill: black;
+}

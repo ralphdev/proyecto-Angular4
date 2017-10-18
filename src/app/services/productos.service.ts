@@ -11,6 +11,10 @@ export class ProductosService {
     this.cargar_productos();
   }
 
+  public cargar_prod( cod:string ){
+    return this.http.get(`https://prueba-30666.firebaseio.com/productos/${ cod }.json`)
+  }
+
   public cargar_productos(){
 
     this.cargando = true;

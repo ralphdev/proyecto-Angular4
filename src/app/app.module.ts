@@ -1,25 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-//Importar Http ya que angular cli no lo hace por nosotros
-import { HttpModule } from "@angular/http";
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
 
 //Rutas - Añadirlo despues en los inputs o imports
-import {app_routing} from "./app.routes";
+import { AppRoutingModule } from "./app.routing.module";
 
 //Servicios
-import { InformacionService } from "./services/informacion.services";
+import { InformacionService } from "./services/informacion.service";
 import { ProductosService } from "./services/productos.service";
 
 
 //Componentes
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { ProductosComponent } from './components/productos/productos.component';
-import { BuscarComponent } from './components/buscar/buscar.component';
+
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ProductosComponent } from './pages/item/productos.component';
+import { BuscarComponent } from './pages/search/buscar.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +33,8 @@ import { BuscarComponent } from './components/buscar/buscar.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    app_routing
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     InformacionService,

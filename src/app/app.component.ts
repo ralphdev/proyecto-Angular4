@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InformacionService } from "./services/informacion.services";
+import { InformacionService } from "./services/informacion.service";
 import { ProductosService } from "./services/productos.service";
 
 @Component({
@@ -8,8 +8,9 @@ import { ProductosService } from "./services/productos.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    constructor( public _is:InformacionService,
-                 public _ps:ProductosService ){
+  constructor(
+    public infoServ: InformacionService,
+    public prodServ: ProductosService ){
 
-    }
+  }
 }

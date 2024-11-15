@@ -1,34 +1,69 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { IProd } from '../interface/IProd';
+import { IProdDesc } from '../interface/IProdDesc';
+import { resolve } from '../../../node_modules/@types/q';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductosService {
 
-  productos:any[] = [];
-  cargando:boolean = true;
+  private apiUrl: string = 'https://agular4-to-angular16-products-default-rtdb.firebaseio.com';
 
-  constructor( private http:Http ) {
-    this.cargar_productos();
+  cargando: boolean = true;
+  products: IProd[] = [];
+  productsFilter: IProd[] = []
+
+  constructor( private http: HttpClient ) {
+    this.getProducts();
   }
 
-  public cargar_prod( cod:string ){
-    return this.http.get(`https://prueba-30666.firebaseio.com/productos/${ cod }.json`)
-  }
-
-  public cargar_productos(){
+  getProducts() {
 
     this.cargando = true;
 
-    this.http.get('https://prueba-30666.firebaseio.com/productos_idx.json')
-        .subscribe( res => {
-          //console.log( res.json() );
+    return new Promise( (resolve, reject) => {
 
-          //setTimeout( ()=> {
-            this.cargando = false;
-            this.productos = res.json();
-          //}, 1500 );
+      this.http.get<IProd[]>(`${this.apiUrl}/productos_idx.json`)
+      .subscribe( (res: IProd[]) => {
+        this.cargando = false;
+        this.products = res;
 
-        });
+      });
+    });
+  }
+
+  getProduct( id:string ){
+    return this.http.get<IProdDesc>(`${this.apiUrl}/productos/${ id }.json`)
+  }
+
+  searchProduct( termino: string) {
+
+    if( this.products.length === 0){
+
+      this.getProducts().then( () => {
+        this.filterProducts( termino );
+      })
+    }
+    else {
+      this.filterProducts( termino );
+    }
+  }
+
+  filterProducts( termino:string){
+
+    this.productsFilter = [];
+
+    termino = termino.toLocaleLowerCase();
+
+    this.products.forEach( prod => {
+      const tituloLower = prod.titulo.toLocaleLowerCase();
+
+      if( prod.categoria.indexOf( termino ) >= 0 || tituloLower.indexOf( termino ) >= 0){
+        this.productsFilter.push(prod);
+      }
+    })
   }
 
 }

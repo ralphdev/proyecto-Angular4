@@ -1,0 +1,25 @@
+<div class="ae-grid au-xs-ta-center au-mb-4 animated fadeIn">
+
+    <div class="container">
+        <h2>Lista de Usuarios</h2>
+
+        <!-- Búsqueda -->
+        <input type="text" placeholder="Buscar usuarios..." (input)="onSearch($event)">
+
+        <!-- Loading -->
+        <div *ngIf="loading"><p>Cargando usuarios...</p></div>
+
+        <!-- Lista de usuarios -->
+        <div *ngIf="users$ | async as users">
+            <table border="1">
+                <tr *ngFor="let user of users" class="user-card">
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr *ngIf="users.length === 0">
+                    <td colspan="2">No se encotraron los usuario</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

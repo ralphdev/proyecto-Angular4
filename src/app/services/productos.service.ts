@@ -27,8 +27,12 @@ export class ProductosService {
 
       this.http.get<IProd[]>(`${this.apiUrl}/productos_idx.json`)
       .subscribe( (res: IProd[]) => {
-        this.cargando = false;
+
         this.products = res;
+
+        setTimeout( () => {
+          this.cargando = false;
+        }, 2000);
 
       });
     });

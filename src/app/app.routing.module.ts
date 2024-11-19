@@ -7,6 +7,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ProductosComponent } from './pages/item/productos.component';
 import { BuscarComponent } from './pages/search/buscar.component';
 import { ObservableOneComponent } from './components/observable-one/observable-one.component';
+import { ObservableApiRestComponent } from './components/observable-api-rest/observable-api-rest.component';
 
 const appRoute: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const appRoute: Routes = [
   { path: 'search/:termino', component: BuscarComponent },
 
   { path: 'observable-one', component: ObservableOneComponent },
+  { path: 'observable-api', component: ObservableApiRestComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

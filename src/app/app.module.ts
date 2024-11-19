@@ -21,6 +21,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ProductosComponent } from './pages/item/productos.component';
 import { BuscarComponent } from './pages/search/buscar.component';
 import { ObservableOneComponent } from './components/observable-one/observable-one.component';
+import { ObservableApiRestComponent } from './components/observable-api-rest/observable-api-rest.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ObservableOneComponent } from './components/observable-one/observable-o
     AboutComponent,
     ProductosComponent,
     BuscarComponent,
-    ObservableOneComponent
+    ObservableOneComponent,
+    ObservableApiRestComponent
   ],
   imports: [
     BrowserModule,

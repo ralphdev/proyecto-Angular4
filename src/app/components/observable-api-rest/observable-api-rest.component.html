@@ -1,0 +1,60 @@
+<div class="ae-grid au-xs-ta-center au-mb-4 animated fadeIn">
+
+    <div class="ae-container">
+        <h2>Lista de Usuarios</h2>
+
+        <!-- Búsqueda -->
+         <div class="item-10">
+
+             <input
+             type="text"
+             placeholder="Buscar usuarios..."
+             (input)="onSearch($event)"
+             [class.disabled]="loading$ | async">
+         </div>
+
+        <!-- Error Message -->
+        <div *ngIf="error$ | async as error" class="error-message">
+            {{ error }}
+        </div>
+
+        <!-- Loading -->
+        <div *ngIf="loading$ | async" class="loading">
+            Cargando usuarios...
+        </div>
+
+        <!-- Lista de usuarios -->
+        <ng-container *ngIf="users$ | async as users" class="ae-container">
+            <div *ngIf="users.length > 0; else noUsers" class="ae-grid">
+                <div *ngFor="let user of users" class="item-xs-6 item-md-3 ae-grid__item">
+                    <div class="au-p-2 au-border">
+                        <h3>{{ user.name }}</h3>
+                        <p>{{ user.email }}</p>
+                        <p *ngIf="user.phone">{{ user.phone }}</p>
+                        <div class="au-block">
+                            <button
+                            class="au-inline-block au-p-1 au-m-1 ae-u-bold"
+                            style="background-color: #1d8acb; color: #fff; border: none; border-radius: 4px;"
+                            (click)="onEdit(user)">Editar</button>
+
+                            <button
+                            class="au-inline-block au-p-1 au-m-1 ae-u-bold"
+                            style="background-color: #df280f; color: #fff; border: none; border-radius: 4px;"
+                            (click)="onDelete(user.id)">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-template #noUsers>
+            <p>No se encontraron usuarios</p>
+        </ng-template>
+
+        <!-- Agregar nuevo usuario -->
+        <button
+        class="au-inline-block au-p-1 au-m-1 ae-u-bold"
+        style="background-color: #1dcb88; color: #fff; border: none; border-radius: 4px;"
+        (click)="onAddNew()">Agregar Usuario</button>
+    </div>
+</div>

@@ -20,6 +20,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProductosComponent } from './pages/item/productos.component';
 import { BuscarComponent } from './pages/search/buscar.component';
+import { ObservableOneComponent } from './components/observable-one/observable-one.component';
+import { ObservableApiRestComponent } from './components/observable-api-rest/observable-api-rest.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BuscarComponent } from './pages/search/buscar.component';
     HomeComponent,
     AboutComponent,
     ProductosComponent,
-    BuscarComponent
+    BuscarComponent,
+    ObservableOneComponent,
+    ObservableApiRestComponent
   ],
   imports: [
     BrowserModule,

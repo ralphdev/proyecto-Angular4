@@ -8,6 +8,7 @@ import { ProductosComponent } from './pages/item/productos.component';
 import { BuscarComponent } from './pages/search/buscar.component';
 import { ObservableOneComponent } from './components/observable-one/observable-one.component';
 import { ObservableApiRestComponent } from './components/observable-api-rest/observable-api-rest.component';
+import { MainPageComponent } from './dbz/pages/main-page.component';
 
 const appRoute: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const appRoute: Routes = [
 
   { path: 'observable-one', component: ObservableOneComponent },
   { path: 'observable-api', component: ObservableApiRestComponent },
+  { path: 'dbz', component: MainPageComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

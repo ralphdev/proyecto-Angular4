@@ -22,6 +22,7 @@ import { ProductosComponent } from './pages/item/productos.component';
 import { BuscarComponent } from './pages/search/buscar.component';
 import { ObservableOneComponent } from './components/observable-one/observable-one.component';
 import { ObservableApiRestComponent } from './components/observable-api-rest/observable-api-rest.component';
+import { DbzModule } from './dbz/dbz.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ObservableApiRestComponent } from './components/observable-api-rest/obs
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DbzModule
   ],
   providers: [
     InformacionService,
